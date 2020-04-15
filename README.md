@@ -2,17 +2,18 @@
 
 Documentation of Time Series Analysis Course 2020.
 
+Group members:
+
+* 05111950010029 - Yolla Faradhilla
+* 05111950010040 - Hafara Firdausi
+  
+
 ## Assignments
 1. [ARIMA - Paper Review]()
 2. [RNN for Timeseries](RNN/README.md)
 3. [LSTM for Timeseries](LSTM/README.md)
     * [Predicting Eye Movements]()
-    * [Forecasting Electrocardiogram Activity]()
-
-Group members:
-
-* 05111950010029 - Yolla Faradhilla
-* 05111950010040 - Hafara Firdausi
+    * [Forecasting Electrocardiogram Activity](LSTM/Forecasting-Electrocardiogram-Activity.ipynb)
 
 ## Tools
 
