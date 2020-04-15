@@ -1,3 +1,4 @@
+# import data
 data("chicken", package="astsa")
 plot(chicken,xlab="Date", ylab="Price(cents)", col="darkblue")
 data<-chicken
