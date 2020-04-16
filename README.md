@@ -11,7 +11,7 @@ Group members:
 ## Assignments
 1. [ARIMA - Paper Review]()
 2. [RNN for Timeseries](RNN/README.md)
-    * [Forcasting Price of Chicken](RNN/chicken.R)
+    * [Forecasting Price of Chicken](rnn/chicken.R)
 3. [LSTM for Timeseries](LSTM/README.md)
     * [Predicting Eye Movements](LSTM/eyemovements.R)
     * [Forecasting Electrocardiogram Activity](LSTM/Forecasting-Electrocardiogram-Activity.ipynb)
