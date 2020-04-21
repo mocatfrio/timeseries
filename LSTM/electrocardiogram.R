@@ -58,3 +58,17 @@ model1 <- trainr(
   )
 
 # evaluate performance
+error_1 <- t(model1$error)
+rownames(error_1) <- 1:nrow(error_1)
+colnames(error_1) <- "error"
+
+plot(error_1, ylab="Training Error", xlab="Epochs")
+
+# get predict values
+pred1_train <- t(predictr(model1, x_train))
+require(Metrics)
+round (rmse(y_train, pred1_train),3)
+round(cor(y_train, pred1_train),3)[,1]
+plot(as.ts(pred1_train, ylab="Signal")
+     
+# test set performance
