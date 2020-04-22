@@ -69,6 +69,36 @@ pred1_train <- t(predictr(model1, x_train))
 require(Metrics)
 round (rmse(y_train, pred1_train),3)
 round(cor(y_train, pred1_train),3)[,1]
-plot(as.ts(pred1_train, ylab="Signal")
+plot(as.ts(pred1_train, ylab="Signal"))
      
 # test set performance
+x1_test <- as.matrix(t(x1[(n_train + 1) : nrow(x1),]))
+x2_test <- as.matrix(t(x2[(n_train + 1) : nrow(x2),]))
+x3_test <- as.matrix(t(x3[(n_train + 1) : nrow(x3),]))
+x4_test <- as.matrix(t(x4[(n_train + 1) : nrow(x4),]))
+y_test <- as.matrix(y[(n_train + 1) : nrow(x4)])
+
+x_test <- array(c(x1_test, x2_test, x3_test, x4_test), dim = c(dim(x1_test),4))
+dim(x_test)
+     
+pred1_test <- t(predictr(model1, x_test))
+
+# unscale data
+unscale_data <- function(x, max_x, min_x)
+{x*(max_x - min_x) + min_x}
+
+pred1_actual <- unscale_data(pred1_test, max_data, min_data)
+pred1_actual <- exp(pred1_actual), end=c(2016,7), frequency=12)
+
+y_actual <- unscale_data(y_test, max_data, min_data)
+y_actual <- exp(y_actual)
+y_actual <- ts(matrix(y_actual), end=c(2016,7), frequency=12)
+
+# Visual inspection
+result_all <- cbind(y_actual, round(pred1_actual, 2))
+colnames(result_all) <- ("actual", "Model")
+plot(result_all)
+ 
+
+
+                
