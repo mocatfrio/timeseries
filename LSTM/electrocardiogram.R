@@ -49,7 +49,7 @@ require(rnn)
 set.seed(2018)
 model1 <- trainr(
   Y = t(y_train), 
-  X = t(x_train),
+  X = x_train,
   learningrate = 0.05,
   hidden_dim = 3,
   numepochs = 300,
@@ -88,7 +88,8 @@ unscale_data <- function(x, max_x, min_x)
 {x*(max_x - min_x) + min_x}
 
 pred1_actual <- unscale_data(pred1_test, max_data, min_data)
-pred1_actual <- exp(pred1_actual), end=c(2016,7), frequency=12)
+pred1_actual <- exp(pred1_actual)
+pred1_actual <- ts(matrix(pred1_actual), end=c(2016,7), frequency=12)
 
 y_actual <- unscale_data(y_test, max_data, min_data)
 y_actual <- exp(y_actual)
@@ -96,7 +97,7 @@ y_actual <- ts(matrix(y_actual), end=c(2016,7), frequency=12)
 
 # Visual inspection
 result_all <- cbind(y_actual, round(pred1_actual, 2))
-colnames(result_all) <- ("actual", "Model")
+colnames(result_all) <- c("actual", "Model")
 plot(result_all)
  
 
