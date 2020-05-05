@@ -98,8 +98,4 @@ y_actual <- ts(matrix(y_actual), end=c(2016,7), frequency=12)
 # Visual inspection
 result_all <- cbind(y_actual, round(pred1_actual, 2))
 colnames(result_all) <- c("actual", "Model")
-plot(result_all)
- 
-
-
-                
+plot(result_all)   
