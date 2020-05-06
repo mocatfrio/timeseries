@@ -1,20 +1,19 @@
 # Time Series Analysis 
 
-Documentation of Time Series Analysis Course 2020.
-
-Group members:
-
+Documentation of Time Series Analysis Course 2020 by
 * 05111950010029 - Yolla Faradhilla
 * 05111950010040 - Hafara Firdausi
   
 
 ## Assignments
-1. [ARIMA - Paper Review]()
-2. [RNN for Timeseries](RNN/README.md)
-    * [Forecasting Price of Chicken](rnn/chicken.R)
-3. [LSTM for Timeseries](LSTM/README.md)
-    * [Predicting Eye Movements](LSTM/eyemovements.R)
+1. ARIMA - Paper Review
+2. RNN for Timeseries
+    * [Forecasting Price of Chicken](RNN/price_of_chicken.R)
+3. LSTM for Timeseries
+    * [Predicting Eye Movements](LSTM/eye-movements.ipynb)
     * [Forecasting Electrocardiogram Activity](LSTM/ecg.R)
+4. GSTAR
+   
 
 ## Tools
 
