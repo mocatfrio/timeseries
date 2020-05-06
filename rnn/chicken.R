@@ -12,8 +12,8 @@ data<-as.zoo(data)
 x1<-Lag(data,k=1)
 x2<-Lag(data,k=2)
 x3<-Lag(data,k=3)
-x4<-Lag(data,k=7)
-x<-cbind(x1,x2,x3,x4,data)
+
+x<-cbind(x1,x2,x3,data)
 x<-log(x)
 head(round(x,2))
 
@@ -29,20 +29,18 @@ x<-range_data(x)
 x1<-as.matrix(x[,1])
 x2<-as.matrix(x[,2])
 x3<-as.matrix(x[,3])
-x4<-as.matrix(x[,4])
-y<-as.matrix(x[,5])
-n_train<-165
+y<-as.matrix(x[,4])
+n_train<-163
 y_train<-as.matrix(y[1:n_train])
 x1_train<-as.matrix(t(x1[1:n_train,]))
 x2_train<-as.matrix(t(x2[1:n_train,]))
 x3_train<-as.matrix(t(x3[1:n_train,]))
-x4_train<-as.matrix(t(x4[1:n_train,]))
-x_train<-array(c(x1_train, x2_train, x3_train, x4_train), dim=c(dim(x1_train),4))
+x_train<-array(c(x1_train, x2_train, x3_train), dim=c(dim(x1_train),3))
 
 require(rnn)
 set.seed(256)
 model1<-trainr(Y=t(y_train),
-               X=x_train,learningrate=0.1,
+               X=x_train,learningrate=0.08,
                hidden_dim= c(3,5),
                numepochs=3000,
                network_type="rnn",
@@ -61,10 +59,9 @@ cor(y_train, pred1_train)
 x1_test<-as.matrix(t(x1[(n_train+1):nrow(x1),]))
 x2_test<-as.matrix(t(x2[(n_train+1):nrow(x2),]))
 x3_test<-as.matrix(t(x3[(n_train+1):nrow(x3),]))
-x4_test<-as.matrix(t(x4[(n_train+1):nrow(x4),]))
-y_test<-as.matrix(y[(n_train+1):nrow(x4)])
+y_test<-as.matrix(y[(n_train+1):nrow(x3)])
 
-x_test<-array(c(x1_test, x2_test, x3_test, x4_test), dim=c(dim(x1_test),4))
+x_test<-array(c(x1_test, x2_test, x3_test), dim=c(dim(x1_test),3))
 
 pred1_test<-t(predictr(model1,x_test))
 
@@ -96,7 +93,7 @@ result_all_test<-cbind(y_actual, round(pred1_actual,2))
 plot(y_ori, col="blue", type="l",main ="Training : Actual vs Predicted Curve", lwd = 2) 
 lines(train_actual, type = "l", col = "red", lwd = 1)
 
-plot(y_actual, col="blue", type="l",main ="Training : Actual vs Predicted Curve", lwd = 2) 
+plot(y_actual, col="blue", type="l",main ="Testing : Actual vs Predicted Curve", lwd = 2) 
 lines(pred1_actual, type = "l", col = "red", lwd = 1)
 
 # Kinerja Model : r, R-square, MSE, MAPE
@@ -108,4 +105,6 @@ r_sq_test <- korelasi_test^2
 
 mape_train <- (sum(abs(result_all_train[,1] - result_all_train[,2])/result_all_train[1]/n_train))
 mse_train <- sum((result_all_train[,1] - result_all_train[,2])^2)/n_train
-mse_train
+
+mape_test <-(sum(abs(result_all_test[,1] - result_all_test[,2])/result_all_test[1]/length(y_test)))
+mse_test <- sum((result_all_test[,1] - result_all_test[,2])^2)/length(y_test)

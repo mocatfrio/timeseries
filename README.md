@@ -14,7 +14,7 @@ Group members:
     * [Forecasting Price of Chicken](rnn/chicken.R)
 3. [LSTM for Timeseries](LSTM/README.md)
     * [Predicting Eye Movements](LSTM/eyemovements.R)
-    * [Forecasting Electrocardiogram Activity](LSTM/Forecasting-Electrocardiogram-Activity.ipynb)
+    * [Forecasting Electrocardiogram Activity](LSTM/ecg.R)
 
 ## Tools
 
