@@ -8,12 +8,12 @@ Documentation of Time Series Analysis Course 2020 by
 ## Assignments
 1. ARIMA - Paper Review
 2. RNN for Timeseries
-    * [Forecasting Price of Chicken](RNN/price_of_chicken.R)
+    * [Forecasting Price of Chicken](rnn/price_of_chicken.R)
 3. LSTM for Timeseries
     * [Predicting Eye Movements](LSTM/eye-movements.ipynb)
     * [Forecasting Electrocardiogram Activity](LSTM/ecg.R)
 4. GSTAR
-    * [Forecasting Average Temperature in Surabaya](GSTAR/gstar_temperature.R)
+    * [Predicting Temperature in Surabaya](GSTAR/gstar_temperature.r)
    
 
 ## Tools

@@ -12,7 +12,7 @@ data<-as.zoo(data)
 x1<-Lag(data,k=1)
 x2<-Lag(data,k=2)
 x3<-Lag(data,k=3)
-x4<-Lag(data,k=7)
+x4<-Lag(data,k=4)
 x<-cbind(x1,x2,x3,x4,data)
 x<-log(x)
 head(round(x,2))
@@ -44,7 +44,7 @@ set.seed(256)
 model1<-trainr(Y=t(y_train),
                X=x_train,learningrate=0.1,
                hidden_dim= c(3,5),
-               numepochs=10000,
+               numepochs=3000,
                network_type="rnn",
                sigmoid="logistic")
 
@@ -108,4 +108,6 @@ r_sq_test <- korelasi_test^2
 
 mape_train <- (sum(abs(result_all_train[,1] - result_all_train[,2])/result_all_train[1]/n_train))
 mse_train <- sum((result_all_train[,1] - result_all_train[,2])^2)/n_train
-mse_train
+
+mape_test <-(sum(abs(result_all_test[,1] - result_all_test[,2])/result_all_test[1]/length(y_test)))
+mse_test <- sum((result_all_test[,1] - result_all_test[,2])^2)/length(y_test)
