@@ -13,6 +13,7 @@ Documentation of Time Series Analysis Course 2020 by
     * [Predicting Eye Movements](LSTM/eye-movements.ipynb)
     * [Forecasting Electrocardiogram Activity](LSTM/ecg.R)
 4. GSTAR
+    * [Predicting Temperature in Surabaya](GSTAR/gstar-temperatur.r)
    
 
 ## Tools
